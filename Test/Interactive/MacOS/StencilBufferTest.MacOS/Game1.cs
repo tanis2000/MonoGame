@@ -16,15 +16,7 @@ namespace StencilBufferTest.MacOS {
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		Texture2D _maskTex;
-
-		// only write when the stencil buffer has 1
-		public static DepthStencilState EqualStencilState = new DepthStencilState() {
-			StencilEnable = true,
-			StencilFunction = CompareFunction.Equal,
-			StencilPass = StencilOperation.Keep,
-			ReferenceStencil = 1,
-			DepthBufferEnable = false,
-		};
+		Texture2D _bgTex;
 
 		public Game1 ()
 		{
@@ -55,7 +47,9 @@ namespace StencilBufferTest.MacOS {
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch (GraphicsDevice);
-			_maskTex = Content.Load<Texture2D>( "mask" );		}
+			_maskTex = Content.Load<Texture2D>( "mask" );		
+			_bgTex = Content.Load<Texture2D>( "background" );	
+		}
 
 		/// <summary>
 		/// Allows the game to run logic such as updating the world,
@@ -82,11 +76,44 @@ namespace StencilBufferTest.MacOS {
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
-		
-			spriteBatch.Begin( SpriteSortMode.Immediate, null, SamplerState.PointClamp, EqualStencilState, null, null );
-			//spriteBatch.Begin();
-			spriteBatch.Draw( _maskTex, new Vector2( 200, 200 ), Color.White );
+			GraphicsDevice.Clear(ClearOptions.Target 
+				| ClearOptions.Stencil, Color.Transparent, 0, 0);
+
+			var m = Matrix.CreateOrthographicOffCenter(0,
+				graphics.GraphicsDevice.PresentationParameters.BackBufferWidth,
+				graphics.GraphicsDevice.PresentationParameters.BackBufferHeight,
+				0, 0, 1
+			);
+
+			var a = new AlphaTestEffect(graphics.GraphicsDevice) {
+				DiffuseColor = Color.White.ToVector3(),
+				AlphaFunction = CompareFunction.Greater,
+				ReferenceAlpha = 0,
+				Projection = m
+			};
+
+			var s1 = new DepthStencilState {
+				StencilEnable = true,
+				StencilFunction = CompareFunction.Always,
+				StencilPass = StencilOperation.Replace,
+				ReferenceStencil = 1,
+				DepthBufferEnable = false,
+			};
+
+			var s2 = new DepthStencilState {
+				StencilEnable = true,
+				StencilFunction = CompareFunction.LessEqual,
+				StencilPass = StencilOperation.Keep,
+				ReferenceStencil = 1,
+				DepthBufferEnable = false,
+			};
+
+			spriteBatch.Begin(SpriteSortMode.Immediate, null, null, s1, null, a);
+			spriteBatch.Draw(_maskTex, Vector2.Zero, Color.White); //The mask                                   
+			spriteBatch.End();
+
+			spriteBatch.Begin(SpriteSortMode.Immediate, null, null, s2, null, a);            
+			spriteBatch.Draw(_bgTex, Vector2.Zero, Color.White); //The background
 			spriteBatch.End();
 
 			base.Draw (gameTime);
