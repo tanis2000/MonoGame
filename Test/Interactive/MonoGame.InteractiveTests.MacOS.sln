@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundTest2_MacOs", "MacOS\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockingRun", "MacOS\BlockingRun\BlockingRun.csproj", "{75D4D875-093F-4C00-8EE5-C7B39D2F4C18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StencilBufferTest.MacOS", "MacOS\StencilBufferTest.MacOS\StencilBufferTest.MacOS.csproj", "{E26224F6-E2E1-4A77-8F9E-3C51814E3747}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -34,6 +36,12 @@ Global
 		{36C538E6-C32A-4A8D-A39C-566173D7118E}.Distribution|Any CPU.Build.0 = Distribution|Any CPU
 		{36C538E6-C32A-4A8D-A39C-566173D7118E}.Release|x86.ActiveCfg = Release|Any CPU
 		{36C538E6-C32A-4A8D-A39C-566173D7118E}.Release|x86.Build.0 = Release|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Debug|x86.Build.0 = Debug|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Distribution|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Distribution|Any CPU.Build.0 = Debug|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Release|x86.Build.0 = Release|Any CPU
 		{75D4D875-093F-4C00-8EE5-C7B39D2F4C18}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{75D4D875-093F-4C00-8EE5-C7B39D2F4C18}.Debug|x86.Build.0 = Debug|Any CPU
 		{75D4D875-093F-4C00-8EE5-C7B39D2F4C18}.Distribution|Any CPU.ActiveCfg = Debug|Any CPU
@@ -70,18 +78,18 @@ Global
 		{ABF4BDBE-C7DE-43E5-98BC-4547FE27A64A}.Distribution|Any CPU.Build.0 = Debug|x86
 		{ABF4BDBE-C7DE-43E5-98BC-4547FE27A64A}.Release|x86.ActiveCfg = Release|x86
 		{ABF4BDBE-C7DE-43E5-98BC-4547FE27A64A}.Release|x86.Build.0 = Release|x86
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Debug|x86.Build.0 = Debug|Any CPU
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Distribution|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Distribution|Any CPU.Build.0 = Debug|Any CPU
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Release|x86.ActiveCfg = Release|Any CPU
-		{5C3DC4FF-FE5A-4B94-B4A6-6F79E63F3130}.Release|x86.Build.0 = Release|Any CPU
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Debug|x86.ActiveCfg = Debug|x86
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Debug|x86.Build.0 = Debug|x86
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Distribution|Any CPU.ActiveCfg = Debug|x86
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Distribution|Any CPU.Build.0 = Debug|x86
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Release|x86.ActiveCfg = Release|x86
 		{E251B0C1-ED74-4210-A0D5-9E4710FEA61F}.Release|x86.Build.0 = Release|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Debug|x86.ActiveCfg = Debug|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Debug|x86.Build.0 = Debug|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Distribution|Any CPU.ActiveCfg = Debug|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Distribution|Any CPU.Build.0 = Debug|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Release|x86.ActiveCfg = Release|x86
+		{E26224F6-E2E1-4A77-8F9E-3C51814E3747}.Release|x86.Build.0 = Release|x86
 		{FE2CB4FE-6466-4B3A-B2B8-38FFD2047DBE}.Debug|x86.ActiveCfg = Debug|x86
 		{FE2CB4FE-6466-4B3A-B2B8-38FFD2047DBE}.Debug|x86.Build.0 = Debug|x86
 		{FE2CB4FE-6466-4B3A-B2B8-38FFD2047DBE}.Distribution|Any CPU.ActiveCfg = Debug|x86
@@ -132,7 +140,6 @@ Global
 		{ECD1D53E-F50A-4299-9B0F-2F64D6063513}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MacOS\TextureScaleColorTest\TextureScaleColorTest.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.inheritsSet = null
@@ -152,9 +159,9 @@ Global
 		$2.inheritsScope = text/x-csharp
 		$2.scope = text/x-csharp
 		$0.TextStylePolicy = $3
-		$3.RemoveTrailingWhitespace = True
 		$3.inheritsSet = Mono
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
+		StartupItem = MacOS\TextureScaleColorTest\TextureScaleColorTest.csproj
 	EndGlobalSection
 EndGlobal
